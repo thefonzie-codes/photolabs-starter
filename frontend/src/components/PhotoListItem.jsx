@@ -1,21 +1,30 @@
-import React from "react";
-
+import React, { useState } from "react";
+import PhotoFavButton from "./PhotoFavButton";
 import "../styles/PhotoListItem.scss";
 
-
-const sampleDataForPhotoListItem = {
-  id: "1",
-  location: {
-    city: "Montreal",
-    country: "Canada",
-  },
-  imageSource: `${process.env.PUBLIC_URL}/Image-1-Regular.jpeg`,
-  username: "Joe Example",
-  profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
-};
-
-const PhotoListItem = () => {
+const PhotoListItem = (props) => {
+  const { photo, handleUserLikes } = props;
+  const { id, user, urls, location } = photo;
   /* Insert React */
+
+  const [favourite, setFavourite] = useState(false);
+
+  const handleUserFavourite = () => favourite ? setFavourite(false) : setFavourite(true);
+
+  return (
+    <article className="photo-list__item">
+      <PhotoFavButton 
+        handleUserFavourite={() => handleUserFavourite()} selected={favourite} />
+      <img className="photo-list__image" src={urls.full} />
+      <div>
+        <img className="profile photo-list__user-profile" src={user.profile} />
+        <div className="photo-list__user-info">
+          <h1>{user.username}</h1>
+          <h2 className="photo-list__user-location">{location.city}, {location.country}</h2>
+        </div>
+      </div>
+    </article>
+  );
 };
 
 export default PhotoListItem;
