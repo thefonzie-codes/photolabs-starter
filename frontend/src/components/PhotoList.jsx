@@ -5,11 +5,24 @@ import "../styles/PhotoList.scss";
 
 
 const PhotoList = (props) => {
-  
-  const { photos, setUserLikes, userLikes, hidden, setHidden } = props;
 
-  const createPhotoListItemComponent = photos.map(photo => 
-    <PhotoListItem photo={photo} key={photo.id} setUserLikes={setUserLikes} userLikes={userLikes} hidden={hidden} setHidden={setHidden}/>
+  const {
+    photos,
+    setUserLikes,
+    userLikes,
+    setHidden,
+    setPhotoData
+  } = props;
+
+  const createPhotoListItemComponent = photos.map(photo =>
+    <PhotoListItem
+      photo={photo}
+      key={photo.id}
+      setUserLikes={setUserLikes}
+      userLikes={userLikes}
+      setHidden={setHidden}
+      setPhotoData={setPhotoData}
+    />
   );
 
   return (
