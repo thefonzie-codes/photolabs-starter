@@ -8,7 +8,7 @@ import TopNavigation from 'components/TopNavigationBar';
 
 
 const HomeRoute = (props) => {
-  const { photos, topics } = props;
+  const { photos, topics, hidden, setHidden } = props;
 
   const [userLikes, setUserLikes] = useState(0);
 
@@ -17,7 +17,7 @@ const HomeRoute = (props) => {
   return (
     <div className="home-route">
       <TopNavigation topics={topics} userLikes={userLikes}/>
-      <PhotoList photos={photos} userLikes={userLikes} setUserLikes={setUserLikes}/>
+      <PhotoList photos={photos} userLikes={userLikes} setUserLikes={setUserLikes}  hidden={hidden} setHidden={setHidden}/>
     </div>
   );
 };

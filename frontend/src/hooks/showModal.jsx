@@ -1,9 +1,10 @@
 import { useState } from "react";
 
-export default function toggleShow (show){
-  const [hidden, setHidden] = useState(false);
+export default function showModal (photo){
+  
+  const [photoData, setPhotoData] = useState(null);
 
-  const toggleShowState = show ? setShow(false) : setShow(true);
+  setPhotoData(photo);
 
-  return hidden;
+  return photoData;
 }

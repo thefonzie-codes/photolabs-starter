@@ -10,10 +10,12 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 const App = () => {
   const [hidden, setHidden] = useState(true);
 
+  console.log(hidden);
+
   return (
     <div className="App">
-      <HomeRoute topics={topics} photos={photos}/>
-      <PhotoDetailsModal hidden={hidden}/>
+      <HomeRoute topics={topics} photos={photos} hidden={hidden} setHidden={setHidden}/>
+      <PhotoDetailsModal hidden={hidden} setHidden={setHidden}/>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import PhotoFavButton from "./PhotoFavButton";
 import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = (props) => {
-  const { photo, setUserLikes, userLikes } = props;
+  const { photo, setUserLikes, userLikes, hidden, setHidden } = props;
   const { id, user, urls, location } = photo;
   /* Insert React */
 
@@ -12,7 +12,7 @@ const PhotoListItem = (props) => {
   const handleUserFavourite = () => favourite ? (setFavourite(false), setUserLikes(userLikes - 1)) : (setFavourite(true), setUserLikes(userLikes + 1));
 
   return (
-    <article className="photo-list__item">
+    <article onClick={() => setHidden(false)} className="photo-list__item">
       <PhotoFavButton 
         handleUserFavourite={() => handleUserFavourite()} selected={favourite} />
       <img className="photo-list__image" src={urls.full} />
