@@ -3,13 +3,13 @@ import PhotoFavButton from "./PhotoFavButton";
 import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = (props) => {
-  const { photo, handleUserLikes } = props;
+  const { photo, setUserLikes, userLikes } = props;
   const { id, user, urls, location } = photo;
   /* Insert React */
 
   const [favourite, setFavourite] = useState(false);
 
-  const handleUserFavourite = () => favourite ? setFavourite(false) : setFavourite(true);
+  const handleUserFavourite = () => favourite ? (setFavourite(false), setUserLikes(userLikes - 1)) : (setFavourite(true), setUserLikes(userLikes + 1));
 
   return (
     <article className="photo-list__item">

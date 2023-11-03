@@ -46,12 +46,13 @@ const HomeRoute = (props) => {
   const { photos, topics } = props;
 
   const [userLikes, setUserLikes] = useState(0);
-  const handleUserLikes = (fav) => fav ? setUserLikes(userLikes + 1) : setUserLikes(userLikes - 1);
+
+  console.log(userLikes);
 
   return (
     <div className="home-route">
-      <TopNavigation topics={topics}/>
-      <PhotoList photos={photos}/>
+      <TopNavigation topics={topics} userLikes={userLikes}/>
+      <PhotoList photos={photos} userLikes={userLikes} setUserLikes={setUserLikes}/>
     </div>
   );
 };
