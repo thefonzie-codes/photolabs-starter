@@ -7,27 +7,22 @@ import "../styles/PhotoList.scss";
 const PhotoList = (props) => {
 
   const {
-    photos,
-    setUserLikes,
-    userLikes,
-    setHidden,
-    setPhotoData
+    state,
+    dispatch
   } = props;
 
-  const createPhotoListItemComponent = photos.map(photo =>
+  const photoListItemComponents = state.photos.map(photo =>
     <PhotoListItem
-      photo={photo}
-      key={photo.id}
-      setUserLikes={setUserLikes}
-      userLikes={userLikes}
-      setHidden={setHidden}
-      setPhotoData={setPhotoData}
+    key = {photo.id}
+    id = {photo.id}
+    state={state}
+    dispatch={dispatch}
     />
   );
 
   return (
     <ul className="photo-list">
-      {createPhotoListItemComponent}
+      {photoListItemComponents}
     </ul>
   );
 };

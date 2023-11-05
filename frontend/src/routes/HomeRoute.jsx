@@ -8,20 +8,20 @@ import TopNavigation from 'components/TopNavigationBar';
 
 
 const HomeRoute = (props) => {
-  const { photos, topics, hidden, setHidden, photoData, setPhotoData } = props;
-
-  const [userLikes, setUserLikes] = useState(0);
+  const { 
+    state,
+    dispatch,
+  } = props;
 
   return (
     <div className="home-route">
-      <TopNavigation topics={topics} userLikes={userLikes}/>
-      <PhotoList 
-        photos={photos} 
-        userLikes={userLikes} 
-        setUserLikes={setUserLikes}  
-        setHidden={setHidden}
-        photoData={photoData}
-        setPhotoData={setPhotoData}
+      <TopNavigation 
+        state={state}
+        dispatch={dispatch}
+        />
+      <PhotoList
+        state={state}
+        dispatch={dispatch}
       />
     </div>
   );

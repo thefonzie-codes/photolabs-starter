@@ -1,24 +1,34 @@
 import React from 'react';
 
 import '../styles/PhotoDetailsModal.scss';
-import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 import ModalPhotoLarge from 'components/ModalPhotoLarge';
+import ModalTopBar from 'components/ModalTopBar';
+import closeSymbol from '../assets/closeSymbol.svg';
+import ModalPhotoList from 'components/ModalPhotoList';
 
 const PhotoDetailsModal = (props) => {
-  const { hidden, setHidden, photoData, photos } = props;
-  const largePhoto = photos[photoData];
-
-  console.log('photodata: ', photoData);
-  console.log('inmodal: ', hidden);
-
+  const {
+    state,
+    dispatch,
+  } = props;
+  const largePhoto = state.photos[state.selectedPhoto - 1];
+  
   return (
-    <div hidden={!!hidden} className="photo-details-modal">
-      <button className="photo-details-modal__close-button">
-        <img onClick={() => setHidden(true)} src={closeSymbol} alt="close symbol" />
-      </button>
-      <ModalPhotoLarge largePhoto={largePhoto}/>
-      {/* <PhotoList {...photoData}/> */}
+    <div className="photo-details-modal">
+      <div className='photo-details-modal__top-bar '>
+        <button className="photo-details-modal__close-button">
+          <img onClick={() => dispatch({ type: "CLOSE_MODAL"})} src={closeSymbol} alt="close symbol" />
+        </button>
+      </div>
+      <ModalPhotoLarge
+        largePhoto={largePhoto}
+        state={state}
+        dispatch={dispatch} />
+      <ModalPhotoList
+        state={state}
+        dispatch={dispatch}
+      />
     </div>
   );
 };

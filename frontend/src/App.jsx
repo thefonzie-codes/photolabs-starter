@@ -1,32 +1,31 @@
 import React, { useState } from 'react';
+import { useReducer } from 'react';
 import './App.scss';
-
-import topics from 'mocks/topics';
-import photos from 'mocks/photos';
 
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
+import useApplicationData from 'hooks/useApplicationData';
+import { ACTIONS } from 'hooks/reducer';
 
 const App = () => {
-  const [photoData, setPhotoData] = useState(0);
-  const [hidden, setHidden] = useState(true);
+  const {
+    state,
+    dispatch
+  } = useApplicationData();
 
-  console.log(hidden, photoData);
+
+  console.log(state);
 
   return (
     <div className="App">
       <HomeRoute 
-        topics={topics} 
-        photos={photos} 
-        setHidden={setHidden}
-        setPhotoData={setPhotoData}
+        state={state}
+        dispatch={dispatch}
         />
-      <PhotoDetailsModal 
-        hidden={hidden} 
-        setHidden={setHidden} 
-        photoData={photoData}
-        photos={photos}
-        />
+      {state.hidden === false && <PhotoDetailsModal 
+        state={state}
+        dispatch={dispatch}
+        />}
     </div>
   );
 };
