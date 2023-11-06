@@ -11,26 +11,26 @@ export function reducer(state, action) {
 
     case 'FAV_PHOTO_TOGGLE':
       return (
-        !state.favourites[action.value] ? 
-        {...state, favourites: {...state.favourites, [action.value] : true}} :
-        {...state, favourites: {...state.favourites, [action.value] : false}}
+        !state.favourites[action.value] ?
+          { ...state, favourites: { ...state.favourites, [action.value]: true } } :
+          { ...state, favourites: { ...state.favourites, [action.value]: false } }
       )
-    
+
     case 'SET_PHOTO_DATA':
-      return {...state, hidden : false, selectedPhoto : action.value};
+      return { ...state, photos: action.value };
 
     case 'SET_TOPIC_DATA':
-      return {...state, selectedTopic: topic};
+      return { ...state, topics: action.value };
 
     case 'SELECT_PHOTO':
-      return {...state, hidden : false, selectedPhoto : action.value};
+      return { ...state, hidden: false, selectedPhoto: action.value };
 
     case 'DISPLAY_PHOTO_DETAILS':
-      return {...state, hidden : false, selectedPhoto : action.value};
+      return { ...state, hidden: false, selectedPhoto: action.value };
 
     case 'CLOSE_MODAL':
-      return {...state, hidden : true}
-      
+      return { ...state, hidden: true }
+
 
     default:
       throw new Error(

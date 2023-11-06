@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useReducer } from 'react';
+import React from 'react';
 import './App.scss';
 
 import HomeRoute from 'routes/HomeRoute';
@@ -13,8 +12,7 @@ const App = () => {
     dispatch
   } = useApplicationData();
 
-
-  console.log(state);
+  console.log(state)
 
   return (
     <div className="App">

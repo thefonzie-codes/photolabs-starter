@@ -1,21 +1,34 @@
 import { useReducer } from "react";
-import { reducer } from "./reducer";
+import { ACTIONS, reducer } from "./reducer";
+import { useEffect } from "react";
 
-import photos from "mocks/photos";
-import topics from "mocks/topics";
+export default function useApplicationData() {
 
-export default function useApplicationData (){
-  const [state, dispatch] = useReducer(reducer, {
-    photos, 
-    topics, 
-    favourites: {1 : false}, 
-    hidden: true, 
-    selectedPhoto: null, 
+  const initialState = {
+    photos: [],
+    topics: [],
+    favourites: { 1: false },
+    hidden: true,
+    selectedPhoto: null,
     selectedTopic: null
-  });
-
-    return {
-      state,
-      dispatch
-    }
   }
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    fetch("/api/photos")
+      .then(res => res.json())
+      .then(data => dispatch({ type: "SET_PHOTO_DATA", value: data }))
+  }, [])
+
+  useEffect(() => {
+    fetch("/api/topics")
+      .then(res => res.json())
+      .then(data => dispatch({ type: "SET_TOPIC_DATA", value: data }))
+  }, [])
+  
+  return {
+    state,
+    dispatch
+  }
+}

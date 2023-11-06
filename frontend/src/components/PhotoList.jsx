@@ -14,8 +14,11 @@ const PhotoList = (props) => {
   const photoListItemComponents = state.photos.map(photo =>
     <PhotoListItem
     key = {photo.id}
+    urls = {photo.urls}
+    user = {photo.user}
+    location = {photo.location}
     id = {photo.id}
-    state={state}
+    state = {state}
     dispatch={dispatch}
     />
   );

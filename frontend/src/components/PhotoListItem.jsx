@@ -6,10 +6,11 @@ const PhotoListItem = (props) => {
   const {
     state,
     dispatch,
-    id
+    id,
+    user,
+    urls,
+    location
   } = props;
-
-  const { user, urls, location } = state.photos[id - 1];
 
   return (
     <article className="photo-list__item">
