@@ -1,8 +1,7 @@
 import React from 'react';
 import PhotoFavButton from './PhotoFavButton';
 
-export default function ModalPhotoLarge(props) {
-  const { largePhoto, dispatch, state } = props;
+export default function ModalPhotoLarge({ largePhoto, dispatch, state }) {
   const { id, user, urls, location } = largePhoto;
 
   return (

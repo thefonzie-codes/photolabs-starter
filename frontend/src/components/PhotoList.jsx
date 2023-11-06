@@ -4,19 +4,14 @@ import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
 
-const PhotoList = (props) => {
-
-  const {
-    state,
-    dispatch
-  } = props;
+const PhotoList = ({ state, dispatch }) => {
 
   const photoListItemComponents = state.photos.map(photo =>
     <PhotoListItem
-    photo={photo}
-    key = {photo.id}
-    state = {state}
-    dispatch={dispatch}
+      photo={photo}
+      key={photo.id}
+      state={state}
+      dispatch={dispatch}
     />
   );
 

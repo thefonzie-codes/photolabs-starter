@@ -31,7 +31,6 @@ export function reducer(state, action) {
     case 'CLOSE_MODAL':
       return { ...state, hidden: true }
 
-
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`

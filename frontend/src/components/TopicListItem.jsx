@@ -1,8 +1,7 @@
 import React from "react";
 import "../styles/TopicListItem.scss";
 
-const TopicListItem = (props) => {
-  const { id, title, dispatch } = props;
+const TopicListItem = ({ id, title, dispatch }) => {
 
   const getPhotoByTopicId = (id) => {
     fetch(`/api/topics/photos/${id}`, { method: 'GET' })

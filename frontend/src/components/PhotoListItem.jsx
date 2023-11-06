@@ -1,15 +1,9 @@
-import React, { useState } from "react";
 import PhotoFavButton from "./PhotoFavButton";
 import "../styles/PhotoListItem.scss";
 
-const PhotoListItem = (props) => {
-  const {
-    state,
-    dispatch,
-    photo,
-  } = props;
+const PhotoListItem = ({ state, dispatch, photo }) => {
 
-  const {id, user, urls, location} = photo
+  const { id, user, urls, location } = photo
 
   return (
     <article className="photo-list__item">

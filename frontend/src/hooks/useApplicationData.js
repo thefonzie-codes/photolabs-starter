@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { ACTIONS, reducer } from "./reducer";
+import { reducer } from "./reducer";
 import { useEffect } from "react";
 
 export default function useApplicationData() {
@@ -7,7 +7,7 @@ export default function useApplicationData() {
   const initialState = {
     photos: [],
     topics: [],
-    favourites: { 1: false },
+    favourites: {},
     hidden: true,
     selectedPhoto: null,
     selectedTopic: null

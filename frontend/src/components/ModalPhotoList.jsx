@@ -1,13 +1,7 @@
 import React from "react";
-import ModalPhotoListItem from "./ModalPhotoListItem";
 import PhotoListItem from "./PhotoListItem";
 
-export default function ModalPhotoList(props) {
-  const {
-    state,
-    dispatch,
-    similarPhotos
-  } = props;
+export default function ModalPhotoList({ state, dispatch, similarPhotos }) {
 
   const modalListItems = similarPhotos.map(photo =>
     <PhotoListItem

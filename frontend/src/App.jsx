@@ -4,27 +4,20 @@ import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
-import { ACTIONS } from 'hooks/reducer';
 
 const App = () => {
-  const {
-    state,
-    dispatch,
-    ACTIONS
-  } = useApplicationData();
+  const { state, dispatch } = useApplicationData();
 
   return (
     <div className="App">
-      <HomeRoute 
+      <HomeRoute
         state={state}
         dispatch={dispatch}
-        ACTIONS={ACTIONS}
-        />
-      {state.hidden === false && <PhotoDetailsModal 
+      />
+      {state.hidden === false && <PhotoDetailsModal
         state={state}
         dispatch={dispatch}
-        ACTIONS={ACTIONS}
-        />}
+      />}
     </div>
   );
 };

@@ -8,17 +8,17 @@ import TopNavigation from 'components/TopNavigationBar';
 
 
 const HomeRoute = (props) => {
-  const { 
+  const {
     state,
-    dispatch,
+    dispatch
   } = props;
 
   return (
     <div className="home-route">
-      <TopNavigation 
+      <TopNavigation
         state={state}
         dispatch={dispatch}
-        />
+      />
       <PhotoList
         state={state}
         dispatch={dispatch}
