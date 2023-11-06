@@ -9,7 +9,8 @@ import { ACTIONS } from 'hooks/reducer';
 const App = () => {
   const {
     state,
-    dispatch
+    dispatch,
+    ACTIONS
   } = useApplicationData();
 
   return (
@@ -17,10 +18,12 @@ const App = () => {
       <HomeRoute 
         state={state}
         dispatch={dispatch}
+        ACTIONS={ACTIONS}
         />
       {state.hidden === false && <PhotoDetailsModal 
         state={state}
         dispatch={dispatch}
+        ACTIONS={ACTIONS}
         />}
     </div>
   );

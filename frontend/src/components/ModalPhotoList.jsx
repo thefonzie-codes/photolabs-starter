@@ -1,5 +1,6 @@
 import React from "react";
 import ModalPhotoListItem from "./ModalPhotoListItem";
+import PhotoListItem from "./PhotoListItem";
 
 export default function ModalPhotoList(props) {
   const {
@@ -9,7 +10,7 @@ export default function ModalPhotoList(props) {
   } = props;
 
   const modalListItems = similarPhotos.map(photo =>
-    <ModalPhotoListItem
+    <PhotoListItem
       photo={photo}
       key={photo.id}
       dispatch={dispatch}
@@ -18,8 +19,8 @@ export default function ModalPhotoList(props) {
   );
 
   return (
-    <ul className="photo-list">
+    <div className="photo-details-modal__images">
       {modalListItems}
-    </ul>
+    </div>
   );
 }
