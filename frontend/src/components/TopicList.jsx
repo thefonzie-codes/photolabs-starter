@@ -4,18 +4,20 @@ import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
 
 const TopicList = (props) => {
-  const { topics } = props;
+  const { topics, dispatch } = props;
 
   const createTopicsListComponent = topics.map(topic => {
     const { id, slug, title } = topic;
 
-    return <TopicListItem title={title} key={id} />;
+    return (
+      <li key={id}><TopicListItem title={title} id={id} dispatch={dispatch}/></li>
+    )
   });
 
   return (
-    <div className="top-nav-bar__topic-list">
+    <ul className="top-nav-bar__topic-list">
       {createTopicsListComponent}
-    </div>
+    </ul>
   );
 };
 

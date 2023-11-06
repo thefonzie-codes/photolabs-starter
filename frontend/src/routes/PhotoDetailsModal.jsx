@@ -12,7 +12,7 @@ const PhotoDetailsModal = (props) => {
     state,
     dispatch,
   } = props;
-  const largePhoto = state.photos[state.selectedPhoto - 1];
+  const largePhoto = state.selectedPhoto;
   
   return (
     <div className="photo-details-modal">
@@ -26,6 +26,7 @@ const PhotoDetailsModal = (props) => {
         state={state}
         dispatch={dispatch} />
       <ModalPhotoList
+        similarPhotos={largePhoto.similar_photos}
         state={state}
         dispatch={dispatch}
       />

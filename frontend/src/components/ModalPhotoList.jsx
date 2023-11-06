@@ -4,10 +4,11 @@ import ModalPhotoListItem from "./ModalPhotoListItem";
 export default function ModalPhotoList(props) {
   const {
     state,
-    dispatch
+    dispatch,
+    similarPhotos
   } = props;
 
-  const modalListItems = state.photos.map(photo =>
+  const modalListItems = similarPhotos.map(photo =>
     <ModalPhotoListItem
       photo={photo}
       key={photo.id}

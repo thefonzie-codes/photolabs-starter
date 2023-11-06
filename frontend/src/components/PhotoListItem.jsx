@@ -6,16 +6,15 @@ const PhotoListItem = (props) => {
   const {
     state,
     dispatch,
-    id,
-    user,
-    urls,
-    location
+    photo,
   } = props;
+
+  const {id, user, urls, location} = photo
 
   return (
     <article className="photo-list__item">
       <PhotoFavButton dispatch={dispatch} id={id} state={state} />
-      <img onClick={() => (dispatch({ type: 'SET_PHOTO_DATA', value: id }))}
+      <img onClick={() => (dispatch({ type: 'DISPLAY_PHOTO_DETAILS', value: photo }))}
         className="photo-list__image"
         src={urls.full} />
       <div>

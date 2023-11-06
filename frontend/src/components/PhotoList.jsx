@@ -13,11 +13,12 @@ const PhotoList = (props) => {
 
   const photoListItemComponents = state.photos.map(photo =>
     <PhotoListItem
+    photo={photo}
     key = {photo.id}
-    urls = {photo.urls}
-    user = {photo.user}
-    location = {photo.location}
-    id = {photo.id}
+    // urls = {photo.urls}
+    // user = {photo.user}
+    // location = {photo.location}
+    // id = {photo.id}
     state = {state}
     dispatch={dispatch}
     />

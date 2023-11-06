@@ -12,8 +12,6 @@ const App = () => {
     dispatch
   } = useApplicationData();
 
-  console.log(state)
-
   return (
     <div className="App">
       <HomeRoute 
