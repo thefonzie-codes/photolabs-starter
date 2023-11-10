@@ -6,10 +6,13 @@ const PhotoListItem = ({ state, dispatch, photo }) => {
 
   const { id, user, urls, location } = photo
 
+  const getPhotoById = (x) => state.photos.find((each) => each.id === x)
+  
+
   return (
     <article className="photo-list__item">
       <PhotoFavButton dispatch={dispatch} id={id} state={state} />
-      <img onClick={() => (dispatch({ type: 'DISPLAY_PHOTO_DETAILS', value: photo }))}
+      <img onClick={() => (dispatch({ type: 'DISPLAY_PHOTO_DETAILS', value: getPhotoById(id) }))}
         className="photo-list__image"
         src={urls.full} />
       <div className="photo-list__user-info">
