@@ -7,12 +7,12 @@ import FavBadge from './FavBadge';
 
 const TopNavigation = ({ state, dispatch }) => {
 
-  const isFavPhotoExist = Object.values(state.favourites).find(x => x === true);
+  const isFavPhotoExist = Object.values(state.favourites).find(fav => fav === true);
 
   const displayFavPhotos = () => {
     fetch("/api/photos", { method: 'GET' })
       .then(res => res.json())
-      .then(photos => photos.filter(x => Object.keys(state.favourites).includes(x.id.toString()) && state.favourites[x.id]))
+      .then(photos => photos.filter(photo => Object.keys(state.favourites).includes(photo.id.toString()) && state.favourites[photo.id]))
       .then(favs => dispatch({ type: "SET_PHOTO_DATA", value: favs}))
   }
 

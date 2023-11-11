@@ -1,6 +1,7 @@
 import { useReducer } from "react";
 import { reducer } from "./reducer";
 import { useEffect } from "react";
+import axios from 'axios'
 
 export default function useApplicationData() {
 
@@ -16,17 +17,17 @@ export default function useApplicationData() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    fetch("/api/photos")
-      .then(res => res.json())
+    axios.get("/api/photos")
+      .then(res => res.data)
       .then(data => dispatch({ type: "SET_PHOTO_DATA", value: data }))
-      .catch(err => console.error(err))
+      .catch(error => console.error(error))
   }, [])
 
   useEffect(() => {
-    fetch("/api/topics")
-      .then(res => res.json())
+  axios.get("/api/topics")
+      .then(res => res.data)
       .then(data => dispatch({ type: "SET_TOPIC_DATA", value: data }))
-      .catch(err = console.error(err))
+      .catch(error => console.error(error))
   }, [])
   
   return {
