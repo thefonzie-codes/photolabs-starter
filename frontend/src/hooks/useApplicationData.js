@@ -19,12 +19,14 @@ export default function useApplicationData() {
     fetch("/api/photos")
       .then(res => res.json())
       .then(data => dispatch({ type: "SET_PHOTO_DATA", value: data }))
+      .catch(err => console.error(err))
   }, [])
 
   useEffect(() => {
     fetch("/api/topics")
       .then(res => res.json())
       .then(data => dispatch({ type: "SET_TOPIC_DATA", value: data }))
+      .catch(err = console.error(err))
   }, [])
   
   return {
