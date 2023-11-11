@@ -16,17 +16,17 @@ export default function useApplicationData() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    axios.get("/api/photos")
+    const getPhotos = axios.get("/api/photos")
       .then(res => res.data)
       .then(data => dispatch({ type: "SET_PHOTO_DATA", value: data }))
       .catch(error => console.error(error))
-  }, [])
 
-  useEffect(() => {
-  axios.get("/api/topics")
+    const getTopics = axios.get("/api/topics")
       .then(res => res.data)
       .then(data => dispatch({ type: "SET_TOPIC_DATA", value: data }))
       .catch(error => console.error(error))
+
+    Promise.all([getPhotos, getTopics])
   }, [])
   
   return {
