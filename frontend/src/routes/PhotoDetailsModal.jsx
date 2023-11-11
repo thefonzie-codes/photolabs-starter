@@ -5,7 +5,7 @@ import ModalPhotoLarge from 'components/ModalPhotoLarge';
 import closeSymbol from '../assets/closeSymbol.svg';
 import ModalPhotoList from 'components/ModalPhotoList';
 
-const PhotoDetailsModal = ({ state, dispatch }) => {
+export default function PhotoDetailsModal ({ state, dispatch }) {
   const largePhoto = state.selectedPhoto;
 
   return (
@@ -27,5 +27,3 @@ const PhotoDetailsModal = ({ state, dispatch }) => {
     </div>
   );
 };
-
-export default PhotoDetailsModal;

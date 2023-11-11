@@ -5,7 +5,7 @@ import TopicList from './TopicList';
 
 import FavBadge from './FavBadge';
 
-const TopNavigation = ({ state, dispatch }) => {
+export default function TopNavigation ({ state, dispatch }) {
 
   const isFavPhotoExist = Object.values(state.favourites).find(fav => fav === true);
 
@@ -24,5 +24,3 @@ const TopNavigation = ({ state, dispatch }) => {
     </div>
   )
 }
-
-export default TopNavigation;

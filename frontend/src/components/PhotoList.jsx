@@ -3,7 +3,7 @@ import React from "react";
 import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
-const PhotoList = ({ state, dispatch }) => {
+export default function PhotoList({ state, dispatch }) {
 
   const photoListItemComponents = state.photos.map(photo =>
     <PhotoListItem
@@ -20,5 +20,3 @@ const PhotoList = ({ state, dispatch }) => {
     </ul>
   );
 };
-
-export default PhotoList;

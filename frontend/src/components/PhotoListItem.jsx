@@ -2,7 +2,7 @@ import React from "react";
 import PhotoFavButton from "./PhotoFavButton";
 import "../styles/PhotoListItem.scss";
 
-const PhotoListItem = ({ state, dispatch, photo }) => {
+export default function PhotoListItem ({ state, dispatch, photo }) {
 
   const { id, user, urls, location } = photo
 
@@ -26,4 +26,3 @@ const PhotoListItem = ({ state, dispatch, photo }) => {
   );
 };
 
-export default PhotoListItem;

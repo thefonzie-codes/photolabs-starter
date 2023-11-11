@@ -1,6 +1,5 @@
-import { useReducer } from "react";
+import { useReducer, useEffect } from "react";
 import { reducer } from "./reducer";
-import { useEffect } from "react";
 import axios from 'axios'
 
 export default function useApplicationData() {

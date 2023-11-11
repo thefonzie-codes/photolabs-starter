@@ -6,7 +6,7 @@ import PhotoList from 'components/PhotoList';
 import TopNavigation from 'components/TopNavigationBar';
 
 
-const HomeRoute = ({ state, dispatch }) => {
+export default function HomeRoute ({ state, dispatch }) {
 
   return (
     <div className="home-route">
@@ -21,5 +21,3 @@ const HomeRoute = ({ state, dispatch }) => {
     </div>
   );
 };
-
-export default HomeRoute;

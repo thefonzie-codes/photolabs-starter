@@ -3,7 +3,7 @@ import React from "react";
 import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
 
-const TopicList = ({ topics, dispatch, ACTIONS }) => {
+export default function TopicList ({ topics, dispatch, ACTIONS }) {
 
   const createTopicsListComponent = topics.map(topic => {
     const { id, title } = topic;
@@ -19,5 +19,3 @@ const TopicList = ({ topics, dispatch, ACTIONS }) => {
     </ul>
   );
 };
-
-export default TopicList;

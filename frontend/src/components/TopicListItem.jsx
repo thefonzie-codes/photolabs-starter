@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/TopicListItem.scss";
 
-const TopicListItem = ({ id, title, dispatch }) => {
+export default function TopicListItem ({ id, title, dispatch }) {
 
   const getPhotoByTopicId = (id) => {
     fetch(`/api/topics/photos/${id}`, { method: 'GET' })
@@ -18,4 +18,3 @@ const TopicListItem = ({ id, title, dispatch }) => {
   );
 };
 
-export default TopicListItem;

@@ -5,7 +5,7 @@ import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
 
-const App = () => {
+export default function App (){
   const { state, dispatch } = useApplicationData();
 
   return (
@@ -21,5 +21,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;

@@ -3,7 +3,7 @@ import React from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton({ dispatch, id, state }) {
+export default function PhotoFavButton({ dispatch, id, state }) {
   const isFavourite = state.favourites[id] ? true : false;
 
   return (
@@ -14,5 +14,3 @@ function PhotoFavButton({ dispatch, id, state }) {
     </div>
   );
 }
-
-export default PhotoFavButton;
