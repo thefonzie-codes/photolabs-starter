@@ -4,6 +4,7 @@ import '../styles/PhotoDetailsModal.scss';
 import ModalPhotoLarge from 'components/ModalPhotoLarge';
 import closeSymbol from '../assets/closeSymbol.svg';
 import ModalPhotoList from 'components/ModalPhotoList';
+import PhotoList from 'components/PhotoList';
 
 export default function PhotoDetailsModal ({ state, dispatch }) {
   const largePhoto = state.selectedPhoto;
@@ -19,7 +20,7 @@ export default function PhotoDetailsModal ({ state, dispatch }) {
         largePhoto={largePhoto}
         state={state}
         dispatch={dispatch} />
-      <ModalPhotoList
+      <PhotoList
         similarPhotos={largePhoto.similar_photos}
         state={state}
         dispatch={dispatch}

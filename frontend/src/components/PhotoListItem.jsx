@@ -6,8 +6,7 @@ export default function PhotoListItem ({ state, dispatch, photo }) {
 
   const { id, user, urls, location } = photo
 
-  const getPhotoById = (x) => state.photos.find((each) => each.id === x)
-  
+  const getPhotoById = (photoId) => state.photos.find((each) => each.id === photoId)
 
   return (
     <article className="photo-list__item">

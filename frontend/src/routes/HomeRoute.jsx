@@ -4,17 +4,22 @@ import '../styles/HomeRoute.scss';
 
 import PhotoList from 'components/PhotoList';
 import TopNavigation from 'components/TopNavigationBar';
+import MobileNav from 'components/MobileNav';
 
 
-export default function HomeRoute ({ state, dispatch }) {
+export default function HomeRoute({ state, dispatch }) {
 
   return (
     <div className="home-route">
-      <TopNavigation
+      { window.matchMedia("screen and (min-width: 1024px)").matches && <TopNavigation
+        state={state}
+        dispatch={dispatch}
+      /> }
+      <PhotoList
         state={state}
         dispatch={dispatch}
       />
-      <PhotoList
+      <MobileNav
         state={state}
         dispatch={dispatch}
       />
