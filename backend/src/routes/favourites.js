@@ -15,15 +15,14 @@ module.exports = db => {
   });
 
   router.post("/favourites/:id/add", (request, response) => {
-    const protocol = request.protocol;
-    const host = request.hostname;
-    const port = process.env.PORT || 8001;
-    const serverUrl = `${protocol}://${host}:${port}`;
+    const id = request.params.id;
 
     db.query(`
-      
+      INSERT INTO FAVOURITES (photo_id)
+      VALUES (${id})
+      RETURNING photo_id, is_fav
     `).then(({ rows }) => {
-      response.json(rows[0].photo_data);
+      response.json(rows);
     });
   });
 

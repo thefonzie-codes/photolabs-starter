@@ -11,11 +11,12 @@ export const ACTIONS = {
 export function reducer(state, action) {
   switch (action.type) {
     case 'FAV_PHOTO_TOGGLE':
-      return (
-        !state.favourites[action.value] ?
-          { ...state, favourites: { ...state.favourites, [action.value]: true } } :
-          { ...state, favourites: { ...state.favourites, [action.value]: false } }
-      )
+        if (!state.favourites[action.value]){
+          axios.post(`/api/favourites/${action.value}/add`)
+            .then(res => res.data)
+            .then(data => { ...state, favourites: [ ...state.favourites, data ]})
+        }
+        return { ...state, favourites: [ ...state.favourites, {[action.value]: false }]};
 
     case 'SET_PHOTO_DATA':
       return { ...state, photos: action.value };
