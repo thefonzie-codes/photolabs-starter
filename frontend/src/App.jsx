@@ -8,6 +8,8 @@ import useApplicationData from 'hooks/useApplicationData';
 export default function App (){
   const { state, dispatch } = useApplicationData();
 
+  console.log(state);
+
   return (
     <div className="App">
       <HomeRoute

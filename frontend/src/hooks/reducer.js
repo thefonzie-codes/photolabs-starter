@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export const ACTIONS = {
   FAV_PHOTO_TOGGLE: 'FAV_PHOTO_TOGGLE',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
@@ -8,7 +10,6 @@ export const ACTIONS = {
 
 export function reducer(state, action) {
   switch (action.type) {
-
     case 'FAV_PHOTO_TOGGLE':
       return (
         !state.favourites[action.value] ?
@@ -18,6 +19,9 @@ export function reducer(state, action) {
 
     case 'SET_PHOTO_DATA':
       return { ...state, photos: action.value };
+
+    case 'SET_FAVOURITES_DATA':
+      return { ...state, favourites: action.value };
 
     case 'SET_TOPIC_DATA':
       return { ...state, topics: action.value };
@@ -29,7 +33,7 @@ export function reducer(state, action) {
       return { ...state, hidden: false, selectedPhoto: action.value };
 
     case 'CLOSE_MODAL':
-      return { ...state, hidden: true }
+      return { ...state, hidden: true, }
 
     default:
       throw new Error(

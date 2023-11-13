@@ -5,7 +5,8 @@ import FavBadge from "./FavBadge";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouseChimneyWindow } from '@fortawesome/free-solid-svg-icons';
 import { faList } from '@fortawesome/free-solid-svg-icons';
-import "../styles/MobileNav.scss";;
+import "../styles/MobileNav.scss";
+import useApplicationData from "hooks/useApplicationData";
 
 export default function MobileNav({ state, dispatch }) {
 
@@ -13,7 +14,7 @@ export default function MobileNav({ state, dispatch }) {
 
   return (
     <div className="mobile-nav hidden">
-      <FontAwesomeIcon icon={faHouseChimneyWindow} />
+      <FontAwesomeIcon onClick={() => useApplicationData()}icon={faHouseChimneyWindow} />
       <FontAwesomeIcon icon={faList} />
       {/* <TopicList topics={state.topics} dispatch={dispatch} /> */}
       <span onClick={() => useDisplayFavPhotos(state, dispatch)}><FavBadge  isFavPhotoExist={isFavPhotoExist}/></span>
