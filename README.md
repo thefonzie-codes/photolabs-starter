@@ -1,6 +1,14 @@
 # react-photolabs
 The PhotoLabs project for the Web Development React course programming.
 
+Photolabs is a react-based single-page application where you can:
+  -view photos on the home page
+  -select a photo and have a modal pop up displaying the selected photo and similar photos
+  -you can like a photo and it will persist throughout the page
+  -liking a photo will change the favourites icon in the nav bar
+  -clicking the favourites in the nav bar will display favourited photos
+
+
 # Photolabs
 
 ## Setup
